@@ -1,0 +1,55 @@
+.gallery {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 156px;
+}
+
+img {
+  display: block;
+  max-width: 320px;
+  height: auto;
+}
+img:hover {
+  transform: scale(1.03);
+}
+
+.gallery-link {
+  position: relative;
+  display: block;
+}
+
+/* Картинка */
+.gallery-image {
+  display: block;
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+
+/* PNG з пальцем */
+.gallery-link::after {
+  content: "";
+  position: absolute;
+  right: -25px;
+  bottom: -30px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+
+  background: url("/img-hover/hover.png") no-repeat center;
+  background-size: contain;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  pointer-events: none;
+}
+
+.gallery-item:hover .gallery-link::after {
+  opacity: 1;
+}
